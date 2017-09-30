@@ -30,13 +30,13 @@ app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', True)
 app.config['FLASKY_MAIL_SUBJECT_PREFIX']='[Flasky]'
 
 app.config['FLASKY_MAIL_SENDER']='Flasky Admin <flask@minitech.site>'
-app.config['FLASKY_ADMIN']=os.environ.get('FLASKY_ADMIN')
-app.config['MAIL_SERVER']='smtp.minitech.site'
+app.config['FLASKY_ADMIN']=os.environ.get('FLASKY_ADMIN')#receiver
+app.config['MAIL_SERVER']='smtp.minitech.site'#smtp server
 app.config['MAIL_PORT']=465
 #app.config['MAIL_USE_TLS']=True
 app.config['MAIL_USE_SSL']=True
-app.config['MAIL_USERNAME']=os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD']=os.environ.get('MAIL_PASSWD')
+app.config['MAIL_USERNAME']=os.environ.get('MAIL_USERNAME')#sender
+app.config['MAIL_PASSWORD']=os.environ.get('MAIL_PASSWD')#sender
 db=SQLAlchemy(app)
 mail = Mail(app)
 
@@ -130,8 +130,8 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 if __name__ == '__main__':
-    print(app.config['MAIL_USERNAME'])
-    msg=Message('start server',sender = app.config['FLASKY_MAIL_SENDER'],recipients = ['qfcqfcqfc@qq.com'])
+    print("sending start email to " + app.config['FLASKY_ADMIN']+" from "+app.config['FLASKY_MAIL_SENDER'])
+    msg=Message('start server',sender = app.config['FLASKY_MAIL_SENDER'],recipients = [app.config['FLASKY_ADMIN']])
     msg.body="start server test"
     msg.html='<b>HTML</b>body</br>'+time.asctime()
     with app.app_context():
