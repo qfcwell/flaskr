@@ -141,7 +141,7 @@ class User(db.Model):
 if __name__ == '__main__':
     msg=Message('start server',sender = app.config['FLASKY_MAIL_SENDER'],recipients = ['qfcqfcqfc@qq.com'])
     msg.body="start server test"
-    msg.html='<b>HTML</b>body'+time.asctime()
+    msg.html='<b>HTML</b>body</br>'+time.asctime()
     with app.app_context():
         mail.send(msg)
     manager.run()
