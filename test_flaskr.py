@@ -29,7 +29,7 @@ app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', True)
 
 app.config['FLASKY_MAIL_SUBJECT_PREFIX']='[Flasky]'
 
-app.config['FLASKY_MAIL_SENDER']='Flasky Admin <steven@minitech.site>'
+app.config['FLASKY_MAIL_SENDER']='Flasky Admin <flask@minitech.site>'
 app.config['FLASKY_ADMIN']=os.environ.get('FLASKY_ADMIN')
 app.config['MAIL_SERVER']='smtp.minitech.site'
 app.config['MAIL_PORT']=465
@@ -130,6 +130,7 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 if __name__ == '__main__':
+    print(app.config['MAIL_USERNAME'])
     msg=Message('start server',sender = app.config['FLASKY_MAIL_SENDER'],recipients = ['qfcqfcqfc@qq.com'])
     msg.body="start server test"
     msg.html='<b>HTML</b>body</br>'+time.asctime()
