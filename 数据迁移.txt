@@ -1,0 +1,4 @@
+python test_flaskr.py db init
+
+python test_flaskr.py db migrate -m "initial migration"
+python test_flaskr.py db upgrade
