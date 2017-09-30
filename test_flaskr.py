@@ -28,18 +28,9 @@ app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN']=True
 app.config.setdefault('SQLALCHEMY_TRACK_MODIFICATIONS', True)
 
 app.config['FLASKY_MAIL_SUBJECT_PREFIX']='[Flasky]'
-"""
-app.config['FLASKY_MAIL_SENDER']='Flasky Admin <qfcqfcqfc@qq.com">'
-app.config['FLASKY_ADMIN']="qfcqfcqfc@qq.com"#os.environ.get('FLASKY_ADMIN')
-app.config['MAIL_SERVER']='smtp.qq.com'
-app.config['MAIL_PORT']=465
-#app.config['MAIL_USE_TLS']=True
-app.config['MAIL_USE_SSL']=True
-app.config['MAIL_USERNAME']="qfcqfcqfc@qq.com"#os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD']="unddurhrekewdjjd"#os.environ.get('MAIL_PASSWD')
-"""
-app.config['FLASKY_MAIL_SENDER']='Flasky Admin <steven@minitech.site">'
-app.config['FLASKY_ADMIN']="qfcqfcqfc@qq.com"#os.environ.get('FLASKY_ADMIN')
+
+app.config['FLASKY_MAIL_SENDER']='Flasky Admin <steven@minitech.site>'
+app.config['FLASKY_ADMIN']=os.environ.get('FLASKY_ADMIN')
 app.config['MAIL_SERVER']='smtp.minitech.site'
 app.config['MAIL_PORT']=465
 #app.config['MAIL_USE_TLS']=True
