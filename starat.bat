@@ -1,1 +1,1 @@
-python test_flaskr.py runserver --host 0.0.0.0
+python manage.py runserver --host 0.0.0.0
