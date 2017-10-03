@@ -1,0 +1,5 @@
+c:/flask/Scripts/activate
+cd C:\Users\qfcqf\Documents\GitHub\flasky
+
+manage.py db upgrade
+manage.py runserver -p 80
